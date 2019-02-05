@@ -1,0 +1,57 @@
+
+mat-sidenav-container {
+  min-height: 600px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+mat-sidenav {
+  min-height: 600px;
+  background-color: ivory;
+  width: 250px;
+  padding: 5px;
+  border-radius: 5 0 5 0;
+  padding-right: 5px;
+
+  text-align: left;
+ 
+  
+}
+
+
+mat-sidenav-content {
+  background-color: lightsteelblue;
+  min-height: 600px;
+  border-radius: 5px;
+  margin-left: 0px;
+  padding-left: 0px;
+
+  text-align: left;
+      
+}
+
+.example-container {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 260px);
+  min-height: 20em;
+  background-color: peru
+}
+
+.example-radio-group {
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+
+.align-left {
+    text-align: left;
+    padding-left: 10px;
+}
+
+
+ 

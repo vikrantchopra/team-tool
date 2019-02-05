@@ -1,0 +1,55 @@
+<mat-sidenav-container class="">
+  <mat-sidenav #sidenav [mode]="side" opened class="">
+    <button mat-button (click)="sidenav.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
+    <form [formGroup]="retroForm" (ngSubmit)="onSubmit(retroForm.value)">
+      <mat-form-field appearance="outline">
+        <input type="text" aria-label="Teams" placeholder="Select Team" matInput formControlName="teamName"
+          [matAutocomplete]="auto" />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let team of filteredTeams  | async" [value]="team">
+            {{team}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="issueDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Issue</mat-label>
+        <input matInput placeholder="Issue" formControlName="issue">
+
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Owner" formControlName="owner">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Action" formControlName="action">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <textarea matInput placeholder="Comments" formControlName="comments"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button class="submit-button" color="primary" type="submit">Add</button>
+    </form>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="side-bar-content">
+    <p><button mat-button (click)="sidenav.toggle()">
+        <i class="material-icons">menu</i>
+      </button></p>
+    <p style="text-align:center">
+      The content goes here
+
+    </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
