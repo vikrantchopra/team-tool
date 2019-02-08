@@ -11,14 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 
-import { MatDatepickerModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
+import { MatPaginatorModule, MatTableModule, MatDatepickerModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
 import { TeamRetroComponent } from './component/team-retro/team-retro.component';
+import { ReadIssuedataComponent } from './component/read-issuedata/read-issuedata.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TeamRetroComponent
+    TeamRetroComponent,
+    ReadIssuedataComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -35,8 +37,10 @@ import { TeamRetroComponent } from './component/team-retro/team-retro.component'
     MatIconModule,
     MatInputModule,
     MatNativeDateModule,
+    MatPaginatorModule,
     MatRadioModule,
     MatSidenavModule,
+    MatTableModule,
     MatToolbarModule
   ],
   providers: [],

@@ -1,0 +1,10 @@
+table {
+  width: 80%;
+  margin-left: 200px; 
+  text-align: left;
+}
+
+mat-paginator {
+  width: 80%;
+  margin-left: 200px; 
+}

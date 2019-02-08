@@ -19,4 +19,8 @@ export class RetroService {
       comments: value.comments
     });
   }
+
+  getIssues(){
+    return this.db.collection('issues').snapshotChanges();
+  }
 }
