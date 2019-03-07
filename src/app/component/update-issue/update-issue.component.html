@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Update Issue</h1>
+
+<div mat-dialog-content>
+  <!-- <input matInput placeholder="Issue" [(ngModel)]="data.issue" /> -->
+  
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value)">
+    <label>Team: {{data.teamName}}</label>
+    <label>Issue ID: {{data.issueId}}</label>
+    <div class="form-group">
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Issue" formControlName="issue" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Owner" formControlName="owner" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="standard">
+        <input matInput placeholder="Action" formControlName="action" />
+      </mat-form-field>
+    </div>
+    <button mat-raised-button class="submit-button"  color="primary" type="submit" [disabled]="!updateForm.valid">Save</button>
+  </form>
+</div>

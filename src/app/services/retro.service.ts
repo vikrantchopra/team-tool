@@ -23,4 +23,13 @@ export class RetroService {
   getIssues(){
     return this.db.collection('issues').snapshotChanges();
   }
+
+  update(issueKey, value){
+    //value.nameToSearch = value.name.toLowerCase();
+    return this.db.collection('issues').doc(issueKey).set(value);
+  }
+
+  delete(id) {
+    return this.db.collection('issues').doc(id).delete();
+  }
 }

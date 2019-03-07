@@ -1,81 +1,10 @@
+<!--
 <mat-sidenav-container class="">
   <mat-sidenav #sidenav [mode]="side" opened class="">
     <button mat-button (click)="sidenav.toggle()">
       <i class="material-icons">menu</i>
     </button>
-    <form [formGroup]="retroForm" (ngSubmit)="onSubmit(retroForm.value)">
-
-      <div class="form-group">
-        <mat-form-field appearance="outline">
-          <input type="text" aria-label="Teams" placeholder="Select Team" matInput formControlName="teamName"
-            [matAutocomplete]="auto" />
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let team of filteredTeams  | async" [value]="team">
-              {{team}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-
-        <ng-container *ngFor="let validation of validation_messages.teamName">
-          <mat-error *ngIf="retroForm.get('teamName').hasError(validation.type) && (retroForm.get('teamName').dirty || retroForm.get('teamName').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
-
-      <div class="form-group">
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="issueDate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <ng-container *ngFor="let validation of validation_messages.issueDate">
-          <mat-error *ngIf="retroForm.get('issueDate').hasError(validation.type) && (retroForm.get('issueDate').dirty || retroForm.get('issueDate').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
-      
-
-      <div class="form-group">
-        <mat-form-field appearance="standard">
-          <mat-label>Issue</mat-label>
-          <input matInput placeholder="Issue" formControlName="issue">
-          <mat-hint>Hint</mat-hint>
-
-          <ng-container *ngFor="let validation of validation_messages.issue">
-            <mat-error *ngIf="retroForm.get('issue').hasError(validation.type) && (retroForm.get('issue').dirty || retroForm.get('issue').touched)">{{validation.message}}</mat-error>
-          </ng-container>
-        </mat-form-field>
-      </div>
-
-      <div class="form-group">
-        <mat-form-field appearance="standard">
-          <input matInput placeholder="Owner" formControlName="owner">
-        </mat-form-field>
-
-        <ng-container *ngFor="let validation of validation_messages.owner">
-          <mat-error *ngIf="retroForm.get('owner').hasError(validation.type) && (retroForm.get('owner').dirty || retroForm.get('owner').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
-
-      <div class="form-group">
-        <mat-form-field appearance="standard">
-          <input matInput placeholder="Action" formControlName="action">
-        </mat-form-field>
-
-        <ng-container *ngFor="let validation of validation_messages.action">
-          <mat-error *ngIf="retroForm.get('action').hasError(validation.type) && (retroForm.get('action').dirty || retroForm.get('action').touched)">{{validation.message}}</mat-error>
-        </ng-container>
-      </div>
-
-      <div class="form-group">
-        <mat-form-field appearance="outline">
-          <textarea matInput placeholder="Comments" formControlName="comments"></textarea>
-        </mat-form-field>
-
-        
-      </div>
-
-      <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!retroForm.valid">Add</button>
-    </form>
+    <app-add-issue></app-add-issue>
   </mat-sidenav>
 
   <mat-sidenav-content class="side-bar-content">
@@ -88,3 +17,15 @@
     </p>
   </mat-sidenav-content>
 </mat-sidenav-container>
+-->
+
+<mat-grid-list cols="5" rowHeight="550px" >
+  <mat-grid-tile style="padding-top:35px" [rowspan]="1">
+    <app-add-issue></app-add-issue>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="4" class="my-grid-tile">
+    <app-read-issuedata></app-read-issuedata>
+  </mat-grid-tile>
+
+</mat-grid-list>

@@ -11,16 +11,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 
-import { MatPaginatorModule, MatTableModule, MatDatepickerModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
+import { MatDialogModule, MatGridListModule, MatPaginatorModule, MatTableModule, MatDatepickerModule, MatIconModule, MatAutocompleteModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatNativeDateModule } from '@angular/material';
 import { TeamRetroComponent } from './component/team-retro/team-retro.component';
 import { ReadIssuedataComponent } from './component/read-issuedata/read-issuedata.component';
+import { AddIssueComponent } from './component/add-issue/add-issue.component';
+import { UpdateIssueComponent } from './component/update-issue/update-issue.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TeamRetroComponent,
-    ReadIssuedataComponent
+    ReadIssuedataComponent,
+    AddIssueComponent,
+    UpdateIssueComponent
+  ],
+  entryComponents: [
+    UpdateIssueComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -33,7 +40,9 @@ import { ReadIssuedataComponent } from './component/read-issuedata/read-issuedat
     MatAutocompleteModule,
     MatButtonModule,
     MatDatepickerModule,
+    MatDialogModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatNativeDateModule,

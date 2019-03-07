@@ -14,10 +14,7 @@ mat-sidenav {
   padding-right: 5px;
 
   text-align: left;
- 
-  
 }
-
 
 mat-sidenav-content {
   background-color: lightsteelblue;
@@ -28,6 +25,11 @@ mat-sidenav-content {
 
   text-align: left;
       
+}
+
+.my-grid-tile {
+  padding-top: 0px !important;
+  
 }
 
 .example-container {

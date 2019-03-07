@@ -1,13 +1,10 @@
-<p>
-  read-issuedata works!
-</p>
 <table mat-table [dataSource]="items" class="mat-elevation-z8">
   <ng-container matColumnDef="teamName">
     <th mat-header-cell *matHeaderCellDef>Team</th>
     <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().teamName}} </td>
   </ng-container>
 
-  
+
 
   <ng-container matColumnDef="issue">
     <th mat-header-cell *matHeaderCellDef>Issue</th>
@@ -30,9 +27,27 @@
   </ng-container>
 
   <ng-container matColumnDef="issueDate">
-      <th mat-header-cell *matHeaderCellDef>Date</th>
-      <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().issueDate.toDate() | date: 'medium'}} </td>
-    </ng-container>
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().issueDate.toDate() | date: 'medium'}} </td>
+  </ng-container>
+
+  <!--
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button mat-raised-button ><i class="material-icons" (click)="viewDetails(element.payload.doc.data())">edit</i></button>
+      
+    </td>
+  </ng-container>
+-->
+  <ng-container matColumnDef="operations">
+    <th mat-header-cell *matHeaderCellDef>Operations</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button mat-raised-button ><i class="material-icons" (click)="editDetails(element.payload.doc.id, element.payload.doc.data())">edit</i></button>
+      
+      <button mat-button mat-raised-button ><i class="material-icons" (click)="delete(element.payload.doc.id)">delete</i></button>
+    </td>
+  </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
