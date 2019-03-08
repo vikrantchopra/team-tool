@@ -3,7 +3,7 @@
 <div mat-dialog-content>
   <!-- <input matInput placeholder="Issue" [(ngModel)]="data.issue" /> -->
   
-  <form [formGroup]="updateForm" (ngSubmit)="onSubmit(updateForm.value)">
+  <form [formGroup]="updateForm">
     <label>Team: {{data.teamName}}</label>
     <label>Issue ID: {{data.issueId}}</label>
     <div class="form-group">
@@ -23,6 +23,6 @@
         <input matInput placeholder="Action" formControlName="action" />
       </mat-form-field>
     </div>
-    <button mat-raised-button class="submit-button"  color="primary" type="submit" [disabled]="!updateForm.valid">Save</button>
+    <button (click)="onSubmit(updateForm.value)" mat-raised-button class="submit-button"  color="primary" type="submit" [disabled]="!updateForm.valid" mat-dialog-close>Save</button>
   </form>
 </div>

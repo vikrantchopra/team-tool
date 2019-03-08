@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RetroService } from 'src/app/services/retro.service';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import { UpdateIssueComponent } from '../update-issue/update-issue.component';
+import { DeleteIssueComponent } from '../delete-issue/delete-issue.component';
 
 @Component({
   selector: 'app-read-issuedata',
@@ -24,23 +25,21 @@ export class ReadIssuedataComponent implements OnInit {
       })
   }
 
-  viewDetails(value) {
-    console.log("Team Name: " + value.teamName)
-    this.dialog.open(UpdateIssueComponent, {
-      width: '250px',
-      data: value
-      
-    });
-    //console.log("Team Name: " + data.teamName)
-  }
-
+ 
   editDetails(id, value) {
     console.log("Team Name: " + value.teamName)
     console.log("Record ID: " + id)
-    this.issueId = id;
-    this.dialog.open(UpdateIssueComponent, {
+    //this.issueId = id;
+    const dialogRef = this.dialog.open(UpdateIssueComponent, {
       width: '250px',
       data: {issueId: id, teamName: value.teamName, issueDate: value.issueDate, issue: value.issue, owner: value.owner, action: value.action, comments: value.comments}
+    });
+  }
+
+  deleteIssue(id) {
+    this.dialog.open(DeleteIssueComponent, {
+      width: '350px',
+      data: {issueId: id}
     });
   }
 

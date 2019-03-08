@@ -16,6 +16,7 @@ import { TeamRetroComponent } from './component/team-retro/team-retro.component'
 import { ReadIssuedataComponent } from './component/read-issuedata/read-issuedata.component';
 import { AddIssueComponent } from './component/add-issue/add-issue.component';
 import { UpdateIssueComponent } from './component/update-issue/update-issue.component';
+import { DeleteIssueComponent } from './component/delete-issue/delete-issue.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +25,12 @@ import { UpdateIssueComponent } from './component/update-issue/update-issue.comp
     TeamRetroComponent,
     ReadIssuedataComponent,
     AddIssueComponent,
-    UpdateIssueComponent
+    UpdateIssueComponent,
+    DeleteIssueComponent
   ],
   entryComponents: [
-    UpdateIssueComponent
+    UpdateIssueComponent,
+    DeleteIssueComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
